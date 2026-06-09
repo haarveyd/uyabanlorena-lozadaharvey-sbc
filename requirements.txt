@@ -1,1 +1,16 @@
-flask>=3.0.0
+# ============================================================
+# requirements.txt — Sistema Experto LUMIS
+# Instalar con: pip install -r requirements.txt
+# Uyaban Lorena, Lozada Harvey
+# ============================================================
+ 
+# Framework web principal
+flask==3.1.3
+ 
+# Dependencias de Flask (se instalan automáticamente con Flask)
+werkzeug==3.1.8      # Manejo de solicitudes y respuestas HTTP
+jinja2==3.1.6        # Motor de plantillas HTML
+markupsafe==3.0.3    # Escapado seguro de texto en HTML
+click==8.3.1         # Herramienta de línea de comandos
+itsdangerous==2.2.0  # Firma y verificación de datos
+blinker==1.9.0       # Sistema de señales para Flask

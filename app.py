@@ -1,4 +1,5 @@
 # =============================================================================
+#UyabanLorena & Lozada Harvey
 # app.py — Servidor Flask
 # Sistema Experto de Skincare | Inteligencia Artificial II
 # Ejecutar: python app.py  (desde la carpeta skincare_expert/)
