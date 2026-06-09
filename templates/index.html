@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUMIS · Sistema Experto de Skincare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════ NAVBAR -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <span class="logo-mark">◆</span>
+      <span class="logo-text">LUMIS</span>
+    </div>
+    <span class="nav-sub">Sistema Experto · Skincare</span>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════ HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Inteligencia Artificial Aplicada</p>
+    <h1 class="hero-title">Tu rutina de<br /><em>skincare personalizada</em></h1>
+    <p class="hero-desc">
+      Responde 3 preguntas sencillas y nuestro sistema experto analizará tu perfil
+      con 15 reglas dermatológicas para recomendarte la rutina y los productos exactos
+      que necesitas.
+    </p>
+    <button class="btn-primary" onclick="scrollToForm()">
+      Comenzar análisis
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3L13 8L8 13M3 8H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-orb orb-3"></div>
+    <div class="hero-card">
+      <div class="hc-label">Motor de inferencia</div>
+      <div class="hc-value">15 reglas activas</div>
+      <div class="hc-dots">
+        <span class="dot active"></span>
+        <span class="dot active"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════ FORMULARIO -->
+<main class="form-section" id="form-section">
+  <div class="container">
+
+    <!-- Progress bar -->
+    <div class="progress-wrap">
+      <div class="progress-steps">
+        <div class="ps active" id="ps-1">
+          <span class="ps-num">1</span>
+          <span class="ps-label">Tipo de piel</span>
+        </div>
+        <div class="ps-line"></div>
+        <div class="ps" id="ps-2">
+          <span class="ps-num">2</span>
+          <span class="ps-label">Objetivos</span>
+        </div>
+        <div class="ps-line"></div>
+        <div class="ps" id="ps-3">
+          <span class="ps-num">3</span>
+          <span class="ps-label">Edad</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PASO 1: Tipo de piel ───────────────────────────────────────── -->
+    <div class="step" id="step-1">
+      <div class="step-header">
+        <h2 class="step-title">¿Cuál es tu tipo de piel?</h2>
+        <p class="step-hint">Selecciona la opción que mejor te describe.</p>
+      </div>
+      <div class="skin-grid">
+
+        <label class="skin-card" for="piel_grasa">
+          <input type="radio" name="tipo_piel" id="piel_grasa" value="grasa" />
+          <div class="sc-icon">🫧</div>
+          <div class="sc-name">Grasa</div>
+          <div class="sc-desc">Brillo constante, poros visibles, tendencia al acné</div>
+          <div class="sc-check">✓</div>
+        </label>
+
+        <label class="skin-card" for="piel_seca">
+          <input type="radio" name="tipo_piel" id="piel_seca" value="seca" />
+          <div class="sc-icon">🌾</div>
+          <div class="sc-name">Seca</div>
+          <div class="sc-desc">Tirante, áspera o con descamación, poca grasa</div>
+          <div class="sc-check">✓</div>
+        </label>
+
+        <label class="skin-card" for="piel_mixta">
+          <input type="radio" name="tipo_piel" id="piel_mixta" value="mixta" />
+          <div class="sc-icon">☯️</div>
+          <div class="sc-name">Mixta</div>
+          <div class="sc-desc">Zona T grasa (frente/nariz), mejillas normales o secas</div>
+          <div class="sc-check">✓</div>
+        </label>
+
+        <label class="skin-card" for="piel_normal">
+          <input type="radio" name="tipo_piel" id="piel_normal" value="normal" />
+          <div class="sc-icon">✨</div>
+          <div class="sc-name">Normal</div>
+          <div class="sc-desc">Equilibrada, sin exceso de grasa ni sequedad notable</div>
+          <div class="sc-check">✓</div>
+        </label>
+
+        <label class="skin-card" for="piel_sensible">
+          <input type="radio" name="tipo_piel" id="piel_sensible" value="sensible" />
+          <div class="sc-icon">🌸</div>
+          <div class="sc-name">Sensible</div>
+          <div class="sc-desc">Rojeces, picores o reacciones ante productos</div>
+          <div class="sc-check">✓</div>
+        </label>
+
+      </div>
+      <div class="step-actions">
+        <button class="btn-next" id="btn-next-1" onclick="goToStep(2)" disabled>
+          Siguiente
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3L13 8L8 13M3 8H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── PASO 2: Objetivos ─────────────────────────────────────────── -->
+    <div class="step hidden" id="step-2">
+      <div class="step-header">
+        <h2 class="step-title">¿Qué quieres conseguir?</h2>
+        <p class="step-hint">Puedes seleccionar hasta 3 objetivos.</p>
+      </div>
+      <div class="goal-grid">
+
+        <label class="goal-card" for="g_hidratacion">
+          <input type="checkbox" name="objetivos" id="g_hidratacion" value="hidratacion" />
+          <div class="gc-icon">💧</div>
+          <div class="gc-name">Hidratación</div>
+          <div class="gc-desc">Piel suave y nutrida durante todo el día</div>
+          <div class="gc-check">✓</div>
+        </label>
+
+        <label class="goal-card" for="g_anti_acne">
+          <input type="checkbox" name="objetivos" id="g_anti_acne" value="anti_acne" />
+          <div class="gc-icon">🎯</div>
+          <div class="gc-name">Anti-acné</div>
+          <div class="gc-desc">Reducir granos, espinillas y puntos negros</div>
+          <div class="gc-check">✓</div>
+        </label>
+
+        <label class="goal-card" for="g_anti_envejecimiento">
+          <input type="checkbox" name="objetivos" id="g_anti_envejecimiento" value="anti_envejecimiento" />
+          <div class="gc-icon">⏳</div>
+          <div class="gc-name">Anti-edad</div>
+          <div class="gc-desc">Prevenir o reducir líneas y pérdida de firmeza</div>
+          <div class="gc-check">✓</div>
+        </label>
+
+        <label class="goal-card" for="g_iluminacion">
+          <input type="checkbox" name="objetivos" id="g_iluminacion" value="iluminacion" />
+          <div class="gc-icon">🌟</div>
+          <div class="gc-name">Luminosidad</div>
+          <div class="gc-desc">Tono más brillante, uniforme y radiante</div>
+          <div class="gc-check">✓</div>
+        </label>
+
+        <label class="goal-card" for="g_poros">
+          <input type="checkbox" name="objetivos" id="g_poros" value="poros" />
+          <div class="gc-icon">🔬</div>
+          <div class="gc-name">Poros</div>
+          <div class="gc-desc">Minimizar la apariencia de poros dilatados</div>
+          <div class="gc-check">✓</div>
+        </label>
+
+        <label class="goal-card" for="g_manchas">
+          <input type="checkbox" name="objetivos" id="g_manchas" value="manchas" />
+          <div class="gc-icon">🪄</div>
+          <div class="gc-name">Manchas</div>
+          <div class="gc-desc">Reducir hiperpigmentación y tono desigual</div>
+          <div class="gc-check">✓</div>
+        </label>
+
+      </div>
+      <div class="step-actions">
+        <button class="btn-back" onclick="goToStep(1)">← Atrás</button>
+        <button class="btn-next" id="btn-next-2" onclick="goToStep(3)" disabled>
+          Siguiente
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3L13 8L8 13M3 8H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── PASO 3: Edad ───────────────────────────────────────────────── -->
+    <div class="step hidden" id="step-3">
+      <div class="step-header">
+        <h2 class="step-title">¿En qué rango de edad estás?</h2>
+        <p class="step-hint">Tu edad determina qué activos son más adecuados para ti.</p>
+      </div>
+      <div class="age-grid">
+
+        <label class="age-card" for="edad_joven">
+          <input type="radio" name="edad" id="edad_joven" value="joven" />
+          <div class="ac-range">15 – 25</div>
+          <div class="ac-label">Joven</div>
+          <div class="ac-desc">Enfoque en prevención y equilibrio</div>
+          <div class="ac-check">✓</div>
+        </label>
+
+        <label class="age-card" for="edad_adulto">
+          <input type="radio" name="edad" id="edad_adulto" value="adulto" />
+          <div class="ac-range">26 – 40</div>
+          <div class="ac-label">Adulto</div>
+          <div class="ac-desc">Mantenimiento y anti-edad preventivo</div>
+          <div class="ac-check">✓</div>
+        </label>
+
+        <label class="age-card" for="edad_maduro">
+          <input type="radio" name="edad" id="edad_maduro" value="maduro" />
+          <div class="ac-range">40+</div>
+          <div class="ac-label">Maduro</div>
+          <div class="ac-desc">Activos potentes de renovación y nutrición</div>
+          <div class="ac-check">✓</div>
+        </label>
+
+      </div>
+      <div class="step-actions">
+        <button class="btn-back" onclick="goToStep(2)">← Atrás</button>
+        <button class="btn-primary" id="btn-analizar" onclick="analizar()" disabled>
+          <span id="btn-text">Analizar mi piel</span>
+          <span id="btn-spinner" class="spinner hidden"></span>
+          <svg id="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3L13 8L8 13M3 8H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Error global -->
+    <div class="error-banner hidden" id="error-banner">
+      <span id="error-msg"></span>
+    </div>
+
+  </div>
+</main>
+
+<!-- ══════════════════════════════════════════════════════════ RESULTADOS -->
+<section class="results-section hidden" id="results-section">
+  <div class="container">
+
+    <!-- Header de resultados -->
+    <div class="results-header">
+      <div class="results-badge">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1L11.39 6.26L17 7.27L13 11.14L13.96 17L9 14.27L4.04 17L5 11.14L1 7.27L6.61 6.26L9 1Z" fill="currentColor"/></svg>
+        Análisis completado
+      </div>
+      <h2 class="results-title">Tu rutina personalizada</h2>
+      <p class="results-sub" id="results-summary"></p>
+      <div class="certeza-bar-wrap">
+        <span class="certeza-label">Nivel de certeza</span>
+        <div class="certeza-track">
+          <div class="certeza-fill" id="certeza-fill"></div>
+        </div>
+        <span class="certeza-pct" id="certeza-pct"></span>
+      </div>
+    </div>
+
+    <!-- Advertencias -->
+    <div id="advertencias-wrap"></div>
+
+    <!-- Rutinas -->
+    <div class="rutinas-wrap">
+
+      <!-- Mañana -->
+      <div class="rutina-col">
+        <div class="rutina-header">
+          <span class="rutina-icon">🌅</span>
+          <div>
+            <div class="rutina-title">Rutina de Mañana</div>
+            <div class="rutina-hint">Protege y prepara tu piel para el día</div>
+          </div>
+        </div>
+        <div class="products-list" id="rutina-manana"></div>
+      </div>
+
+      <!-- Noche -->
+      <div class="rutina-col">
+        <div class="rutina-header">
+          <span class="rutina-icon">🌙</span>
+          <div>
+            <div class="rutina-title">Rutina de Noche</div>
+            <div class="rutina-hint">Repara y regenera mientras duermes</div>
+          </div>
+        </div>
+        <div class="products-list" id="rutina-noche"></div>
+      </div>
+
+    </div>
+
+    <!-- Extras semanales -->
+    <div id="extras-wrap" class="hidden">
+      <div class="extras-title">
+        <span>📅</span> Tratamientos Semanales
+      </div>
+      <div class="products-list products-list--row" id="rutina-extras"></div>
+    </div>
+
+    <!-- ── Sección de Explicación ──────────────────────────────────── -->
+    <div class="explanation-section">
+      <div class="expl-header" onclick="toggleExplanation()">
+        <div class="expl-title">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M10 9V14M10 6.5V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Razonamiento del sistema experto
+        </div>
+        <div class="expl-toggle" id="expl-toggle">Ver detalle ↓</div>
+      </div>
+      <div class="expl-body hidden" id="expl-body">
+
+        <!-- Reglas aplicadas -->
+        <div class="rules-applied" id="rules-applied"></div>
+
+        <!-- Texto completo del motor -->
+        <div class="expl-text-wrap">
+          <div class="expl-text-title">Traza completa del motor de inferencia</div>
+          <pre class="expl-pre" id="expl-pre"></pre>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA reiniciar -->
+    <div class="reset-wrap">
+      <button class="btn-reset" onclick="resetForm()">
+        ← Hacer nuevo análisis
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ MODAL ¿POR QUÉ? -->
+<div class="modal-overlay hidden" id="modal-overlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3 class="modal-title" id="modal-title">¿Por qué este producto?</h3>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="logo-mark">◆</span>
+    <span>LUMIS · Sistema Experto de Skincare · IA II</span>
+  </div>
+</footer>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
